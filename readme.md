@@ -1,7 +1,7 @@
 # Pharmacy management system
 
 web app powered by web sql without need for database server
-and without backend, its code if all front end (html, css, js)
+and without backend, its code is all front end (html, css, js)
 
 ## built with :
 - html5
