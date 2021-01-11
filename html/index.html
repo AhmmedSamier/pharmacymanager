@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pharmacy manager</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/indexStyle.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand py-0" href="#">
+            <img src="../images/Logo.png" height="45" class="d-inline-block" alt="brand logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./items.html">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./invoices.html">Invoices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./users.html">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" onclick="logout()">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="summary">
+        <div class="row justify-content-between mt-4">
+            <div class="col-12 col-md-3 py-2 mt-2 text-white" style="background-color: #35ba89;">
+                <div class="row py-2">
+                    <div class="col-9 font-weight-bold"> Medicines </div>
+                    <div class="col-3 text-center">
+                        <i class="bi bi-clipboard-check"></i>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-9"> Report </div>
+                    <div class="col-3 text-center font-weight-bold"> 3 </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 py-2 mt-2 text-white" style="background-color: #337dbc;">
+                <div class="row py-2">
+                    <div class="col-9 font-weight-bold"> Sales Of Day </div>
+                    <div class="col-3 text-center">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-9"> Report </div>
+                    <div class="col-3 text-center font-weight-bold"> 3800 </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 py-2 mt-2 text-white" style="background-color: #e89972;">
+                <div class="row py-2">
+                    <div class="col-9 font-weight-bold"> Sales Of Month </div>
+                    <div class="col-3 text-center">
+                        <i class="bi bi-bar-chart-fill"></i>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-9"> Report </div>
+                    <div class="col-3 text-center font-weight-bold"> 5400 </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-between mt-1">
+            <div class="col-12 col-md-3 py-2 mt-2 text-white" style="background-color: #a97ba9;">
+                <div class="row py-2">
+                    <div class="col-9 font-weight-bold"> Stock Shortage </div>
+                    <div class="col-3 text-center">
+                        <i class="bi bi-emoji-frown"></i>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-9"> Report </div>
+                    <div class="col-3 text-center font-weight-bold"> 4 </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 py-2 mt-2 text-white" style="background-color: #43dad3;">
+                <div class="row py-2">
+                    <div class="col-9 font-weight-bold"> Expired Products </div>
+                    <div class="col-3 text-center">
+                        <i class="bi bi-trash-fill"></i>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-9"> Report </div>
+                    <div class="col-3 text-center font-weight-bold"> 1 </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 py-2 mt-2 text-white" style="background-color: #93e263;">
+                <div class="row py-2">
+                    <div class="col-9 font-weight-bold"> Near Expiry </div>
+                    <div class="col-3 text-center">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-9"> Report </div>
+                    <div class="col-3 text-center font-weight-bold"> 3 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h1>Pharmacy management system</h1>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-3">
+              <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-General-list" data-toggle="list" href="#list-General" role="tab" aria-controls="General">General</a>
+                <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+                <a class="list-group-item list-group-item-action" id="list-Items-list" data-toggle="list" href="#list-Items" role="tab" aria-controls="Items">Items</a>
+                <a class="list-group-item list-group-item-action" id="list-Invoices-list" data-toggle="list" href="#list-Invoices" role="tab" aria-controls="Invoices">Invoices</a>
+                <a class="list-group-item list-group-item-action" id="list-Users-list" data-toggle="list" href="#list-Users" role="tab" aria-controls="Users">Users</a>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-General" role="tabpanel" aria-labelledby="list-General-list">
+                    <p class="mb-0">Login status is maintained using value in local storage</p>
+                    <p class="text-muted mb-0">when you access any page without login you will be redirected to Login page</p>
+                    <p class="text-muted">when you access Login page while loged in you will be redirected to Home page</p>
+                    <p class="mt-3">Password stored in db hashed by <span class="font-weight-bold">SHA256</span></p>
+
+                </div>
+                <div class="tab-pane fade" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <p class="mb-0">Home page with some cards to show the current status</p>
+                    <p class="text-muted">every card may take to another page with details (not implemented)</p>
+                    <ul>
+                        <li>Medicines count</li>
+                        <li>Sales of this day</li>
+                        <li>Sales Of this Month</li>
+                        <li>Items with Zero quantity</li>
+                        <li>Expired Items</li>
+                        <li>Items will expire soon</li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="list-Items" role="tabpanel" aria-labelledby="list-Items-list">
+                    <p class="mb-0">Lists the Items in db each has name - quantity - image</p>
+                    <p class="text-muted">you can add new item, edit or delete existing ones</p>
+
+                </div>
+                <div class="tab-pane fade" id="list-Invoices" role="tabpanel" aria-labelledby="list-Invoices-list">
+                    <p class="mb-0">Lists Invoices ordered descending by date</p>
+                    <p class="text-muted mb-0">you can click single Invoice to show its details</p>
+                    <p class="text-muted">you can also add new Invoices - (edit and delete is not implemented)</p>
+
+                    <p class="mb-0">Adding new Invoice you write (Invoice Date - Customer Name - Invoice Type) and choose items too add</p>
+                    <p class="text-muted mb-0">if type is sell: item quantity is reduced, if type is buy: item quantity is added to those instock</p>
+                    
+                </div>
+                <div class="tab-pane fade" id="list-Users" role="tabpanel" aria-labelledby="list-Users-list">
+                    <p class="mb-0">List the users in db, can add or delete user</p>
+                    <p class="text-muted mb-0">users have the same Role</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/crypto-js/crypto-js.js"></script>
+    <script src="../js/Script.js"></script>
+</body>
+
+</html>

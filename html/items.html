@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pharmacy manager</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/itemsStyle.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand py-0" href="#">
+            <img src="../images/Logo.png" height="45" class="d-inline-block" alt="brand logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="./items.html">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./invoices.html">Invoices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./users.html">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" onclick="logout()">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12 col-md-8 mx-auto">
+                <table class="table table-bordered table-hover text-center" id="items-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">name</th>
+                            <th scope="col">quantity</th>
+                            <th scope="col">picture</th>
+                            <th scope="col">
+                                <button class="btn btn-success" onclick="showEditItemModal(0)">Add</button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addNewItemModal" tabindex="-1" aria-labelledby="addNewItemModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNewItemModalLabel">Add new item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger fade hide d-none" role="alert" id="error-addItem">
+                        <strong>Failed to add new item</strong> something went wrong while adding item
+                    </div>
+                    <div class="alert alert-danger fade hide d-none" role="alert" id="addItem-missingData">
+                        <strong>Missing data</strong> some data is required
+                    </div>
+                    <form onsubmit="event.preventDefault();" method="POST" id="myform">
+                        <input type="hidden" id="itemID" aria-describedby="item ID" value="0">
+                        <div class="form-group">
+                            <label for="itemName">Name</label>
+                            <input type="text" class="form-control" id="itemName" aria-describedby="item name" required
+                                autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" required autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="picture">Picture</label>
+                            <!-- <input type="file" class="form-control" id="picture" required> -->
+                            <canvas class="img-fluid d-block" id="myCanvas"></canvas>
+                        </div>
+                    </form>
+
+                    <video class="w-100 d-none" id="liveVideo" autoplay="true"></video>
+                    <div id="videoButtons">
+                        <button class="btn btn-primary" onclick="sartVideo();">switch cam on</button>
+                        <button class="btn btn-secondary" onclick="stopVideo();">switch cam off</button>
+                        <button class="btn btn-warning" onclick="capture();">capture</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="add-edit-btn" class="btn btn-success" onclick="addOrEditItem()">Add
+                        Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/crypto-js/crypto-js.js"></script>
+    <script src="../js/Script.js"></script>
+    <script src="../js/itemsScript.js"></script>
+
+</body>
+
+</html>

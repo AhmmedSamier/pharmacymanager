@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pharmacy manager</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/invoicesStyle.css">
+    <style>
+        #invoices-table tbody tr {
+            cursor: pointer;
+        }
+
+        ;
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand py-0" href="#">
+            <img src="../images/Logo.png" height="45" class="d-inline-block" alt="brand logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./items.html">Items</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./invoices.html">Invoices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./users.html">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" onclick="logout()">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12 col-md-8 mx-auto">
+                <a class="btn btn-success float-right mb-3" href="./newInvoice.html">Add new invoice</a>
+                <table class="table table-bordered table-hover text-center" id="invoices-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Invoice Date</th>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="invoiceDetailsModal" tabindex="-1" aria-labelledby="invoiceDetailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="invoiceDetailsModalLabel">Invoice Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered" id="modal-invoice-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Invoice Date</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Customer Name</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Type</th>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered text-center" id="modal-invoiceItems-table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">name</th>
+                                <th scope="col">quantity</th>
+                                <th scope="col">picture</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/crypto-js/crypto-js.js"></script>
+    <script src="../js/Script.js"></script>
+    <script src="../js/invoicesScript.js"></script>
+
+</body>
+
+</html>

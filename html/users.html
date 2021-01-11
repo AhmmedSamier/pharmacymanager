@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pharmacy manager</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../css/usersStyle.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand py-0" href="#">
+            <img src="../images/Logo.png" height="45" class="d-inline-block" alt="brand logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./items.html">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./invoices.html">Invoices</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./users.html">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" onclick="logout()">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-10 col-sm-8 col-lg-6 mx-auto">
+                <div class="alert alert-danger fade hide d-none" role="alert" id="error-deleteUser">
+                    <strong>Failed to delete user</strong> something went wrong!
+                </div>
+                <ul class="list-group" id="UserList">
+                    <li class="list-group-item list-group-item-primary font-weight-bold text-center">
+                        System Users
+                        <button type="button" class="btn btn-success rounded-circle py-1" data-toggle="modal"
+                            data-target="#addNewUserModal" style="width: 50px;height: 50px; position: absolute; top: -20px; right: -20px;">
+                            <i class="bi bi-plus" style="font-size: 24px;position: relative; top: -3px;"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addNewUserModal" tabindex="-1" aria-labelledby="addNewUserModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNewUserModalLabel">Add new user</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger fade hide d-none" role="alert" id="error-addUser">
+                        <strong>Failed to add new user</strong> something went wrong while adding user
+                    </div>
+                    <div class="alert alert-danger fade hide d-none" role="alert" id="addUser-missingData">
+                        <strong>Missing data</strong> some data is required
+                    </div>
+                    <form onsubmit="event.preventDefault();" method="POST">
+                        <div class="form-group">
+                            <label for="userName">User name</label>
+                            <input type="text" class="form-control" id="userName" aria-describedby="user name" required
+                                autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input type="password" class="form-control" id="Password" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="addUser()">Add User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/crypto-js/crypto-js.js"></script>
+    <script src="../js/Script.js"></script>
+    <script src="../js/usersScript.js"></script>
+</body>
+
+</html>

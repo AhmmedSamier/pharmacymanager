@@ -1,0 +1,18 @@
+nav{
+    background-color: #F9FBFC;
+    border-bottom: 1px solid #ddd ;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+#summary > div > div
+{
+    cursor: pointer;
+    border-radius: 20px;
+
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+#summary > div > div:hover
+{
+    transform: scale(1.1)
+}

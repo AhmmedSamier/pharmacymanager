@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pharmacy manager</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        #items-table tbody tr {
+            cursor: pointer;
+        }
+
+        nav {
+            background-color: #F9FBFC;
+            border-bottom: 1px solid #ddd;
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+        }
+
+        .grow:hover {
+            transform: scale(1.1)
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand py-0" href="#">
+            <img src="../images/Logo.png" height="45" class="d-inline-block" alt="brand logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./items.html">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./invoices.html">Invoices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./users.html">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" onclick="logout()">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-8 mx-auto">
+                <form onsubmit="event.preventDefault();" method="POST" id="myform">
+                    <div class="alert alert-danger fade hide d-none" role="alert" id="missing-data">
+                        <strong>Failed to add invoice</strong> some required data is missing
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Invoice Date</label>
+                        <input type="date" class="form-control" id="date" aria-describedby="invoice date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerName">Customer Name</label>
+                        <input type="text" class="form-control" id="customerName" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select class="form-control" id="type">
+                            <option value="sell">sell</option>
+                            <option value="buy">buy</option>
+                        </select>
+                    </div>
+                </form>
+                <div class="text-right">
+                    <button type="button" id="add-invoice-btn" class="btn btn-primary px-4 mt-2 grow"
+                        onclick="addInvoice()">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12 col-md-6">
+                <table class="table table-bordered table-hover text-center" id="items-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="4">Items</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">name</th>
+                            <th scope="col">quantity</th>
+                            <th scope="col">picture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-md-6">
+                <table class="table table-bordered table-hover text-center" id="invoiceItems-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="4">Invoice Items</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" class="d-none">ID</th>
+                            <th scope="col">name</th>
+                            <th scope="col">quantity</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/crypto-js/crypto-js.js"></script>
+    <script src="../js/Script.js"></script>
+    <script src="../js/newInvoiceScript.js"></script>
+
+</body>
+
+</html>
